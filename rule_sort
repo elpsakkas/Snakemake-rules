@@ -1,0 +1,19 @@
+# -*- snakemake -*-
+
+
+rule all:
+    input:
+	expand("sorted/{sample}", sample=config["samples"])
+
+
+rule sort:
+    input:
+	"/home/elpi/glob/private/aligned/aligned_bam/{sample}"
+    output:
+	"sorted/{sample}"
+
+    shell:
+            """
+            bamtools sort -in {input} -out {output} -byname
+
+            """
