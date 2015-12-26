@@ -1,5 +1,6 @@
 # -*- snakemake -*-
 
+configfile: "config_sort.yaml" 
 
 rule all:
     input:
