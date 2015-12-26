@@ -1,8 +1,6 @@
 # -*- snakemake -*-
 
 
-
-
 rule sort:
     input:
         "/home/elpi/glob/private/aligned/aligned_bam/{sample}"
