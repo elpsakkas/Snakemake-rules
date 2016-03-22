@@ -1,0 +1,16 @@
+rule star_align:
+    input:
+	genome = GENOME,
+        read="/home/elpi/glob/private/data/P2272/trimmed/{sample}"
+    output:
+	"aligned/{sample}.bam"
+    params:
+	"aligned/{sample}"
+    threads:
+	16
+    shell:
+            """
+            STAR --runThreadN {threads} --genomeDir {input.genome} --readFilesIn {input.read} --genomeLoad LoadAndKeep zcat --outSAMtype BAM Unsorted --quantMode TranscriptomeSAM  --outFileNamePrefix {params}.
+
+            """
+
