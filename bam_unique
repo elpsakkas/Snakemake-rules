@@ -1,0 +1,12 @@
+rule bam_unique:
+    input:
+	"/home/elpi/glob/private/aligned/aligned_bam/{sample}"
+    output:
+	"unique/{sample}"
+
+    shell:
+            """
+            bamtools filter -mapQuality 255 -in {input} -out {output}
+
+            """
+
